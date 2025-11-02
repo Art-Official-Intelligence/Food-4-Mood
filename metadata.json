@@ -1,0 +1,5 @@
+{
+  "name": "Food 4 Mood",
+  "description": "An AI nutrition and mood assistant that generates personalized meal recommendations based on your profile and current mood, with an elegant interface inspired by the Apple Health app.",
+  "requestFramePermissions": []
+}

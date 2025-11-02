@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food 4 Mood</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Prevents layout shift during React hydration */
+        html, body, #root {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        /* Custom scrollbar hiding for a native app feel */
+        /* For Webkit browsers (Chrome, Safari) */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        /* For Firefox */
+        * {
+            scrollbar-width: none;
+        }
+        /* For IE/Edge */
+        body {
+            -ms-overflow-style: none;
+        }
+
+        /* Custom styles and animations */
+        @keyframes ring-fill {
+            from { stroke-dashoffset: 345.575; } /* circumference of radius 55 */
+            to { stroke-dashoffset: var(--stroke-dashoffset); }
+        }
+        .animate-ring-fill {
+            animation: ring-fill 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes fade-in-up-and-scale {
+            from { opacity: 0; transform: translateY(20px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+    </style>
+    <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'light-background': '#F9F9F9',
+            'light-card': '#FFFFFF',
+            'light-textPrimary': '#1C1C1E',
+            'light-textSecondary': '#6E6E73',
+            'light-border': '#E5E5EA',
+            'light-subtitle': '#8E8E93',
+
+            'dark-background': '#1C1C1E',
+            'dark-card': '#2C2C2E',
+            'dark-textPrimary': '#FFFFFF',
+            'dark-textSecondary': '#C7C7CC',
+            'dark-border': '#3A3A3C',
+            'dark-subtitle': '#D1D1D6',
+
+            'accent-blue': '#0A84FF',
+            'accent-green': '#30D158',
+            'accent-orange': '#FF9F0A',
+            'accent-red': '#FF453A',
+            'accent-mint': '#63E6E2',
+            'accent-purple': '#BF5AF2',
+          },
+          animation: {
+              'fade-in-up-scale': 'fade-in-up-and-scale 0.3s ease-in-out forwards',
+              'shimmer': 'shimmer 2s infinite linear',
+          },
+          keyframes: {
+              'fade-in-up-and-scale': {
+                  'from': { opacity: '0', transform: 'translateY(20px) scale(0.98)' },
+                  'to': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              'shimmer': {
+                  '0%': { 'background-position': '-1000px 0' },
+                  '100%': { 'background-position': '1000px 0' },
+              }
+          }
+        }
+      }
+    }
+    </script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/",
+        "@google/genai": "https://aistudiocdn.com/@google/genai@^1.28.0"
+      }
+    }
+    </script>
+</head>
+<body class="bg-light-background dark:bg-dark-background transition-colors duration-300">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
