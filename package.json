@@ -4,16 +4,22 @@
   "description": "An AI nutrition and mood assistant.",
   "private": true,
   "scripts": {
-    "dev": "echo 'Run this project in a Vercel dev environment: vercel dev'",
-    "build": "echo 'This is a static project, Vercel will handle the build.'"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@google/genai": "^1.28.0"
+    "@google/genai": "^1.28.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@types/node": "^20.11.24",
     "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
     "@vercel/node": "^3.0.22",
-    "typescript": "^5.3.3"
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
   }
 }
